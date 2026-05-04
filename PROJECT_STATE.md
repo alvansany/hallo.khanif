@@ -1,5 +1,5 @@
 # 📋 PROJECT STATE — Portfolio Website
-> **Last Updated:** 2026-05-02 | **Status:** Development (Running) ✅
+> **Last Updated:** 2026-05-04 | **Status:** Deployment Ready / Final Polish ✅
 
 ---
 
@@ -116,6 +116,9 @@ Membangun situs web **portofolio multi-halaman** yang profesional dan berkualita
 - **Hydration Failed (Nested `<a>`)**: Kesalahan pembungkusan tag `<a>` di dalam `<Link>` yang memicu hydration error pada SSR.
 - **Medium API Image Loading**: Mengatur konfigurasi `rss-parser` kustom di endpoint untuk menarik image dan thumbnail dari meta konten secara reliabel.
 - **Data Placeholder**: Semua dummy text (Deri Kurniawan) telah dibersihkan di Navbar, Footer, Contact, Homepage, dan Layout SEO.
+- **Strict Linting & Build Fixes**: Membersihkan puluhan unused imports, memperbaiki pelanggaran Hooks (`useColorModeValue`), dan mendefinisikan interface TypeScript yang ketat (`BlogPost`, `Work`) untuk menjamin kelulusan `npm run build` di Vercel.
+- **Git Submodule Issue**: Memperbaiki repositori yang terdeteksi sebagai submodule sehingga file di dalam `app-scaffold` dapat dibaca secara utuh oleh GitHub dan Vercel.
+- **Email Priority**: Menambahkan header `Importance: high` dan subjek `[URGENT]` pada API Contact agar pesan klien masuk ke inbox utama.
 
 ---
 
@@ -125,14 +128,15 @@ Membangun situs web **portofolio multi-halaman** yang profesional dan berkualita
 - [ ] Menyelesaikan entry data portofolio lain selain Mediverse (misal: K24Klik, dsb).
 
 ### 🟡 MEDIUM PRIORITY
-- [x] **Calendly Integration** — URL Calendly telah ditambahkan (menggunakan placeholder `hallo-khanif`, harap diupdate dengan aslinya).
-- [x] **Contact Form Backend** — Integrasi Email via `resend` SDK di `app/api/contact`. Formulir berjalan nyata.
-- [x] **Sitemap & robots.txt** — Berhasil dibuat secara native menggunakan fitur App Router (`sitemap.ts` dan `robots.ts`).
+- [x] **Calendly Integration** — URL Calendly telah ditambahkan.
+- [x] **Contact Form Backend** — Integrasi Email via `resend` SDK di `app/api/contact`. Formulir berjalan nyata dengan subject [URGENT].
+- [x] **Sitemap & robots.txt** — Berhasil dibuat secara native menggunakan fitur App Router.
 
 ### 🟢 LOW PRIORITY
-- [x] **Analytics** — Vercel Analytics (`@vercel/analytics` dan `@vercel/speed-insights`) telah diimplementasikan di RootLayout.
-- [x] **OG image** — Generator gambar dinamis menggunakan `next/og` (Global dan per Case Study) telah terpasang.
-- [x] **Animasi transisi halaman** — Menggunakan `framer-motion` di `app/template.tsx` untuk memuluskan pergantian rute.
+- [x] **Analytics** — Vercel Analytics dan Speed Insights telah terpasang.
+- [x] **OG image** — Generator gambar dinamis (Global & Case Study) aktif.
+- [x] **Animasi transisi halaman** — Transisi framer-motion halus antar rute.
+- [x] **Favicon** — Menggunakan logo kustom Khanif Alfan.
 
 ---
 

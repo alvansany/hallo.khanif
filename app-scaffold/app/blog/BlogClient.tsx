@@ -10,7 +10,6 @@ import {
   Tag,
   Button,
   Flex,
-  VStack,
   useColorModeValue,
   Input,
   InputGroup,
@@ -19,7 +18,7 @@ import {
   Badge,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Search, Clock, Calendar, ExternalLink } from "lucide-react";
+import { Search, Clock, Calendar, ExternalLink } from "lucide-react";
 import { useState, useMemo } from "react";
 import FadeIn from "@/components/FadeIn";
 import PageWrapper from "@/components/PageWrapper";
@@ -277,6 +276,7 @@ export default function BlogClient({ posts }: { posts: BlogPost[] }) {
                   <FadeIn key={post.id} delay={i * 0.07}>
                     <MotionBox
                       as="a"
+                      // @ts-expect-error type checking issue
                       href={post.link}
                       target={post.link === "#" ? undefined : "_blank"}
                       rel="noopener noreferrer"
@@ -287,7 +287,6 @@ export default function BlogClient({ posts }: { posts: BlogPost[] }) {
                       borderColor={borderColor}
                       overflow="hidden"
                       whileHover={{ y: -6 }}
-                      // @ts-ignore
                       transition={{ duration: 0.25 }}
                     >
                       {/* Thumbnail */}

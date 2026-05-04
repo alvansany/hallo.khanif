@@ -84,7 +84,7 @@ export default function Navbar() {
         borderColor={borderColor}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        // @ts-ignore
+        // @ts-expect-error framer-motion prop mismatch
         transition={{ duration: 0.5 }}
         style={{ transition: "background 0.3s ease, border 0.3s ease" }}
       >
@@ -205,7 +205,7 @@ export default function Navbar() {
                       key={link.href}
                       initial={{ opacity: 0, x: -30 }}
                       animate={{ opacity: 1, x: 0 }}
-                      // @ts-ignore
+                      // @ts-expect-error type checking issue
                       transition={{ delay: i * 0.07 }}
                     >
                       <Link href={link.href} passHref>

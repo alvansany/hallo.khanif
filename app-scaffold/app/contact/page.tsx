@@ -15,22 +15,17 @@ import {
   Link as ChakraLink,
   Text,
   Textarea,
-  VStack,
   useColorModeValue,
-  Flex,
-  Divider,
-  Icon,
   useToast,
+  Flex,
+  VStack,
 } from "@chakra-ui/react";
-import { motion } from "framer-motion";
 import { ArrowRight, Mail, MapPin, Calendar, Clock } from "lucide-react";
 import { LinkedinIcon, GithubIcon, DribbbleIcon, TwitterIcon } from "@/components/SocialIcons";
 import { useState } from "react";
 import FadeIn from "@/components/FadeIn";
 import PageWrapper from "@/components/PageWrapper";
 import { PROFILE } from "@/lib/data";
-
-const MotionBox = motion(Box);
 
 const SERVICES_LIST = [
   "Product Design",

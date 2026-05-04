@@ -9,19 +9,15 @@ import {
   Tag,
   Flex,
   Button,
-  VStack,
   useColorModeValue,
   Image,
 } from "@chakra-ui/react";
-import { motion } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { WORKS } from "@/lib/data";
 import FadeIn from "@/components/FadeIn";
 import PageWrapper from "@/components/PageWrapper";
 import { useState } from "react";
-
-const MotionBox = motion(Box);
 
 const ALL_TAGS = ["All", ...Array.from(new Set(WORKS.flatMap((w) => w.tags)))];
 

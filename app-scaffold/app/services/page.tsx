@@ -7,15 +7,12 @@ import {
   Heading,
   Text,
   HStack,
-  Tag,
   VStack,
-  Divider,
   Button,
   Flex,
   useColorModeValue,
   List,
   ListItem,
-  ListIcon,
 } from "@chakra-ui/react";
 import { CheckCircle, ArrowRight, Zap } from "lucide-react";
 import Link from "next/link";
@@ -42,6 +39,8 @@ export default function ServicesPage() {
   const subtleText = useColorModeValue("gray.500", "gray.400");
   const bodyText = useColorModeValue("gray.700", "gray.300");
   const headingColor = useColorModeValue("gray.900", "white");
+  const numberColor = useColorModeValue("gray.200", "gray.700");
+  const processNumberColor = useColorModeValue("gray.100", "gray.700");
 
   return (
     <PageWrapper>
@@ -98,7 +97,7 @@ export default function ServicesPage() {
                       fontFamily="heading"
                       fontSize="3xl"
                       fontWeight="900"
-                      color={useColorModeValue("gray.200", "gray.700")}
+                      color={numberColor}
                       _groupHover={{ color: "brand.500" }}
                       transition="color 0.2s"
                     >
@@ -200,7 +199,7 @@ export default function ServicesPage() {
                     fontSize="6xl"
                     fontFamily="heading"
                     fontWeight="900"
-                    color={useColorModeValue("gray.100", "gray.700")}
+                    color={processNumberColor}
                     lineHeight="1"
                     mb={4}
                     position="absolute"

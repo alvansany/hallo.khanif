@@ -11,8 +11,6 @@ import {
   Tag,
   VStack,
   Divider,
-  Button,
-  Flex,
   useColorModeValue,
   Image,
   Modal,
@@ -22,14 +20,11 @@ import {
   ModalCloseButton,
   useDisclosure,
 } from "@chakra-ui/react";
-import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { WORKS } from "@/lib/data";
 import FadeIn from "@/components/FadeIn";
 import PageWrapper from "@/components/PageWrapper";
-
-const MotionBox = motion(Box);
 
 interface Work {
   slug: string;

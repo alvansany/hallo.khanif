@@ -4,7 +4,6 @@ import {
   Box,
   Button,
   Container,
-  Divider,
   Flex,
   Grid,
   GridItem,
@@ -15,7 +14,6 @@ import {
   VStack,
   useColorModeValue,
   Badge,
-  AspectRatio,
   Image,
 } from "@chakra-ui/react";
 import { motion, useScroll, useTransform } from "framer-motion";
@@ -35,7 +33,6 @@ import PageWrapper from "@/components/PageWrapper";
 import { useRef, useEffect, useState } from "react";
 
 const MotionBox = motion(Box);
-const MotionText = motion(Text);
 const MotionHeading = motion(Heading);
 
 const STAT_ICONS = [<Zap key="z" />, <Award key="a" />, <TrendingUp key="t" />, <Users key="u" />];
@@ -44,7 +41,7 @@ const STAT_ICONS = [<Zap key="z" />, <Award key="a" />, <TrendingUp key="t" />, 
 
 export default function HomePage() {
   const heroRef = useRef(null);
-  const [blogPosts, setBlogPosts] = useState<any[]>([]);
+  const [blogPosts, setBlogPosts] = useState<{ title: string; link: string; date: string; categories: string[]; thumbnail?: string }[]>([]);
 
   useEffect(() => {
     fetch('/api/medium', { cache: 'no-store' })
@@ -226,7 +223,6 @@ export default function HomePage() {
                 <MotionBox
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
-                  // @ts-ignore
                   transition={{ duration: 0.8, delay: 0.3 }}
                   position="relative"
                 >
@@ -776,7 +772,7 @@ export default function HomePage() {
 
           <Grid templateColumns={{ base: "1fr", md: "repeat(3, 1fr)" }} gap={8}>
             {blogPosts.map((post, i) => (
-              <FadeIn key={post.id} delay={i * 0.1}>
+              <FadeIn key={post.link} delay={i * 0.1}>
                 <Box
                   as="a"
                   href={post.link}
@@ -842,7 +838,7 @@ export default function HomePage() {
                       left={4}
                     >
                       <Tag size="sm" colorScheme="brand" borderRadius="none" fontSize="xs">
-                        {post.category}
+                        {post.categories?.[0]}
                       </Tag>
                     </Box>
                     {!post.thumbnail && (

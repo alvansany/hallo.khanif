@@ -28,7 +28,6 @@ import {
   useColorModeValue,
   Badge,
   Progress,
-  Tooltip,
   Avatar,
   RadioGroup,
   Radio,
@@ -48,7 +47,6 @@ import {
   Heart,
   Star,
   Settings,
-  User,
   Check,
   X,
 } from "lucide-react";

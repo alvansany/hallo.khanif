@@ -33,6 +33,7 @@ interface Work {
   year: string;
   tags: string[];
   summary: string;
+  cover: string;
   client: string;
   role: string;
   duration: string;

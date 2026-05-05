@@ -39,9 +39,23 @@ const STAT_ICONS = [<Zap key="z" />, <Award key="a" />, <TrendingUp key="t" />, 
 
 
 
+interface BlogPost {
+  id: number;
+  title: string;
+  slug: string;
+  link: string;
+  date: string;
+  readTime: string;
+  category: string;
+  categories: string[];
+  excerpt: string;
+  thumbnail: string;
+  author: string;
+}
+
 export default function HomePage() {
   const heroRef = useRef(null);
-  const [blogPosts, setBlogPosts] = useState<{ title: string; link: string; date: string; categories: string[]; thumbnail?: string }[]>([]);
+  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([]);
 
   useEffect(() => {
     fetch('/api/medium', { cache: 'no-store' })
@@ -838,7 +852,7 @@ export default function HomePage() {
                       left={4}
                     >
                       <Tag size="sm" colorScheme="brand" borderRadius="none" fontSize="xs">
-                        {post.categories?.[0]}
+                        {post.category}
                       </Tag>
                     </Box>
                     {!post.thumbnail && (

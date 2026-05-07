@@ -1,5 +1,5 @@
 # 📋 PROJECT STATE — Portfolio Website
-> **Last Updated:** 2026-05-04 | **Status:** Deployment Ready / Final Polish ✅
+> **Last Updated:** 2026-05-07 | **Status:** Deployment Ready / Final Polish ✅
 
 ---
 
@@ -107,6 +107,7 @@ Membangun situs web **portofolio multi-halaman** yang profesional dan berkualita
 - Nama inisial di-update jadi **Khanif Alfan**.
 - **Skillset & Experience** telah disinkronisasikan ke `lib/data.ts` (menggunakan referensi "5+ tahun pengalaman").
 - **API Medium** berjalan secara real-time (`force-dynamic`) sukses menarik blog terbaru tanpa build ulang.
+- **English Translation**: Seluruh konten di halaman `/work` (termasuk metadata, deskripsi panjang, caption galeri, dan teks "Coming Soon") pada file `lib/data.ts` telah diterjemahkan ke bahasa Inggris secara menyeluruh.
 - **Mediverse Case Study** telah diintegrasikan secara utuh mengikuti struktur Design Thinking (Project Overview, Empathize, Define, Ideate, Prototype, Test, Outcomes) lengkap dengan galeri aset asli.
 
 ---
@@ -117,6 +118,7 @@ Membangun situs web **portofolio multi-halaman** yang profesional dan berkualita
 - **Medium API Image Loading**: Mengatur konfigurasi `rss-parser` kustom di endpoint untuk menarik image dan thumbnail dari meta konten secara reliabel.
 - **Data Placeholder**: Semua dummy text (Deri Kurniawan) telah dibersihkan di Navbar, Footer, Contact, Homepage, dan Layout SEO.
 - **Strict Linting & Build Fixes**: Membersihkan puluhan unused imports, memperbaiki pelanggaran Hooks (`useColorModeValue`), dan mendefinisikan interface TypeScript yang ketat (`BlogPost`, `Work`) untuk menjamin kelulusan `npm run build` di Vercel.
+- **Vercel Deployment Discrepancy**: Memperbaiki isu di mana Vercel terus gagal build akibat perubahan lokal (seperti `BlogPost` interface dan perbaikan linting) yang belum ter-commit dan ter-push ke GitHub.
 - **Git Submodule Issue**: Memperbaiki repositori yang terdeteksi sebagai submodule sehingga file di dalam `app-scaffold` dapat dibaca secara utuh oleh GitHub dan Vercel.
 - **Email Priority**: Menambahkan header `Importance: high` dan subjek `[URGENT]` pada API Contact agar pesan klien masuk ke inbox utama.
 

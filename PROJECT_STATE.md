@@ -134,9 +134,9 @@ Berdasarkan `PRD_Redesign.md`. Semua perubahan di branch terpisah, tidak menyent
 | Step 1: Foundation & Theming | ✅ Done | Fonts, globals.css (CSS vars + keyframes), Chakra theme baru |
 | Step 2: Parallax Assets | ✅ Done | StarField, NebulaLayer, OrbitalRings, CosmicParticles, ParallaxContainer |
 | Step 3: Navbar & Footer | ✅ Done | Glass navbar KA. logo, Moon/Sun toggle, gradient CTA, footer shimmer |
-| Step 4: Hero & About | 🔄 In Progress | — |
-| Step 5: Experience & Works | ⏳ Pending | — |
-| Step 6: Services & CTA | ⏳ Pending | — |
+| Step 4: Hero & About | ✅ Done | Bento grid about, word reveal, count up |
+| Step 5: Experience & Works | ✅ Done | Timeline with gradient line, asymmetric grid |
+| Step 6: Services & CTA | ✅ Done | Cosmic 2x2 grid, orbital numbers |
 
 ### 📁 File Baru (branch: redesign)
 - `app/globals.css` — CSS variables cosmic, semua keyframes

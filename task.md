@@ -21,18 +21,19 @@
   - `[x]` Update `components/PageWrapper.tsx` (wrap with ParallaxContainer + CustomCursor)
   - `[x]` Update `PROJECT_STATE.md`
 
-- `[/]` **Step 4: Hero & About Sections**
-  - `[ ]` Redesign Hero in `app/page.tsx` (100dvh, word-reveal headline, orbital photo frame, count-up stats)
-  - `[ ]` Redesign About section (Bento-grid glass cards)
-  - `[ ]` Update `PROJECT_STATE.md`
+- `[x]` **Step 4: Hero & About Sections**
+  - `[x]` Redesign Hero in `app/page.tsx` (100dvh, word-reveal headline, orbital photo frame, count-up stats)
+  - `[x]` Redesign About section (Bento-grid glass cards)
+  - `[x]` Update `PROJECT_STATE.md`
 
-- `[ ]` **Step 5: Experience & Works Sections**
-  - `[ ]` Redesign Experience timeline (gradient line, animated fill, glass cards)
-  - `[ ]` Redesign Works grid `app/work/page.tsx` (asymmetric grid, featured full-width)
-  - `[ ]` Update `PROJECT_STATE.md`
+- `[x]` **Step 5: Experience & Works Sections**
+  - `[x]` Redesign Experience timeline (gradient line, animated fill, glass cards)
+  - `[x]` Redesign Works grid in `app/page.tsx`
+  - `[x]` Redesign Works grid `app/work/page.tsx` (asymmetric grid, featured full-width)
+  - `[x]` Update `PROJECT_STATE.md`
 
-- `[ ]` **Step 6: Services & CTA Sections**
-  - `[ ]` Redesign Services grid `app/services/page.tsx` (2x2 glass, orbital numbers)
-  - `[ ]` Final build check & push to remote `redesign` branch
-  - `[ ]` Update `PROJECT_STATE.md`
-
+- `[x]` **Step 6: Services & CTA Sections**
+  - `[x]` Redesign Services grid in `app/page.tsx`
+  - `[x]` Redesign Services grid `app/services/page.tsx` (2x2 glass, orbital numbers)
+  - `[x]` Final build check & push to remote `redesign` branch
+  - `[x]` Update `PROJECT_STATE.md`

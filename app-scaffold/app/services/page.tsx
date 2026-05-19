@@ -10,7 +10,6 @@ import {
   VStack,
   Button,
   Flex,
-  useColorModeValue,
   List,
   ListItem,
 } from "@chakra-ui/react";
@@ -33,42 +32,34 @@ const PROCESS = [
 ];
 
 export default function ServicesPage() {
-  const bg = useColorModeValue("white", "gray.900");
-  const cardBg = useColorModeValue("gray.50", "gray.800");
-  const borderColor = useColorModeValue("gray.100", "gray.700");
-  const subtleText = useColorModeValue("gray.500", "gray.400");
-  const bodyText = useColorModeValue("gray.700", "gray.300");
-  const headingColor = useColorModeValue("gray.900", "white");
-  const numberColor = useColorModeValue("gray.200", "gray.700");
-  const processNumberColor = useColorModeValue("gray.100", "gray.700");
 
   return (
     <PageWrapper>
       {/* Header */}
-      <Box bg={useColorModeValue("gray.50", "gray.900")} pt={{ base: 20, md: 28 }} pb={{ base: 16, md: 24 }} borderBottom="1px solid" borderColor={borderColor}>
+      <Box py={{ base: 20, md: 32 }} position="relative">
         <Container maxW="1400px" px={{ base: 5, md: 10, lg: 16 }}>
           <FadeIn>
-            <Text fontSize="xs" fontWeight="700" letterSpacing="0.12em" textTransform="uppercase" color="brand.500" mb={4}>
-              Services
-            </Text>
+            <HStack mb={3} spacing={2}>
+              <Box w="24px" h="1px" background="linear-gradient(90deg, var(--color-violet), var(--color-cyan))" />
+              <Text fontFamily="mono" fontSize="xs" letterSpacing="0.15em" textTransform="uppercase" color="var(--color-stardust)">
+                Services
+              </Text>
+            </HStack>
           </FadeIn>
           <Flex direction={{ base: "column", md: "row" }} justify="space-between" align={{ base: "flex-start", md: "flex-end" }} gap={6}>
             <FadeIn delay={0.1}>
               <Heading
-                as="h1"
-                fontSize={{ base: "5xl", md: "7xl" }}
-                fontFamily="heading"
-                fontWeight="900"
-                lineHeight="0.95"
-                letterSpacing="-0.03em"
-                color={headingColor}
+                as="h1" fontSize={{ base: "5xl", md: "7xl" }} fontFamily="heading" fontWeight="900"
+                lineHeight="0.95" letterSpacing="-0.03em" color="var(--color-star)"
               >
-                What I
-                <Box as="span" fontStyle="italic" color="brand.500"> Offer</Box>
+                What I{" "}
+                <Box as="span" fontStyle="italic" fontWeight="400" sx={{ background: "linear-gradient(135deg, var(--color-violet), var(--color-cyan))", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+                  Offer
+                </Box>
               </Heading>
             </FadeIn>
             <FadeIn delay={0.2}>
-              <Text fontSize="md" color={subtleText} maxW="320px" lineHeight="1.7">
+              <Text fontSize="md" color="var(--color-stardust)" maxW="320px" lineHeight="1.7">
                 Strategic design and engineering services for startups moving fast and enterprises building for scale.
               </Text>
             </FadeIn>
@@ -77,52 +68,47 @@ export default function ServicesPage() {
       </Box>
 
       {/* Services list */}
-      <Box bg={bg} py={{ base: 16, md: 24 }}>
+      <Box py={{ base: 16, md: 24 }} position="relative">
         <Container maxW="1400px" px={{ base: 5, md: 10, lg: 16 }}>
           <VStack align="stretch" spacing={0}>
             {SERVICES.map((service, i) => (
               <FadeIn key={service.number} delay={i * 0.06}>
                 <Box
-                  borderTop="1px solid"
-                  borderColor={borderColor}
-                  py={10}
-                  px={6}
-                  role="group"
-                  _hover={{ bg: cardBg, px: 8 }}
-                  transition="all 0.25s ease"
+                  borderTop="1px solid" borderColor="var(--color-glass-border)"
+                  py={10} px={6} role="group" className="glass-panel"
+                  _hover={{ px: 8, borderColor: "var(--color-cyan)", transform: "translateY(-4px)" }}
+                  transition="all 0.3s ease" mb={4} borderRadius="2xl"
                 >
                   <Grid templateColumns={{ base: "1fr", md: "80px 1fr 1fr auto" }} gap={{ base: 6, md: 10 }} alignItems="flex-start">
                     {/* Number */}
                     <Text
-                      fontFamily="heading"
-                      fontSize="3xl"
-                      fontWeight="900"
-                      color={numberColor}
-                      _groupHover={{ color: "brand.500" }}
-                      transition="color 0.2s"
+                      fontFamily="mono" fontSize="3xl" fontWeight="900" color="rgba(255,255,255,0.1)"
+                      _groupHover={{ color: "var(--color-cyan)" }} transition="color 0.3s"
                     >
                       {service.number}
                     </Text>
 
                     {/* Title + desc */}
                     <Box>
-                      <Heading fontSize={{ base: "2xl", md: "3xl" }} color={headingColor} mb={3}>
+                      <Heading fontSize={{ base: "2xl", md: "3xl" }} color="var(--color-star)" mb={3}>
                         {service.title}
                       </Heading>
-                      <Text fontSize="md" color={bodyText} lineHeight="1.8">
+                      <Text fontSize="md" color="var(--color-stardust)" lineHeight="1.8">
                         {service.description}
                       </Text>
                     </Box>
 
                     {/* Deliverables */}
                     <Box>
-                      <Text fontSize="xs" fontWeight="700" letterSpacing="0.1em" textTransform="uppercase" color={subtleText} mb={3}>
+                      <Text fontSize="xs" fontWeight="700" letterSpacing="0.1em" textTransform="uppercase" color="var(--color-cyan)" mb={3} fontFamily="mono">
                         Deliverables
                       </Text>
                       <List spacing={2}>
                         {service.deliverables.map((d) => (
-                          <ListItem key={d} fontSize="sm" color={bodyText} display="flex" alignItems="center" gap={2}>
-                            <CheckCircle size={14} color="#FE4820" />
+                          <ListItem key={d} fontSize="sm" color="var(--color-stardust)" display="flex" alignItems="center" gap={3}>
+                            <Box color="var(--color-violet)">
+                              <CheckCircle size={14} />
+                            </Box>
                             {d}
                           </ListItem>
                         ))}
@@ -131,21 +117,16 @@ export default function ServicesPage() {
 
                     {/* Price + CTA */}
                     <VStack align={{ base: "flex-start", md: "flex-end" }} spacing={3} flexShrink={0}>
-                      <Text fontFamily="heading" fontSize="xl" fontWeight="700" color="brand.500">
+                      <Text fontFamily="heading" fontSize="xl" fontWeight="700" color="var(--color-star)">
                         {service.price}
                       </Text>
                       <Link href="/contact" passHref>
                         <Button
-                          size="sm"
-                          variant="outline"
-                          borderRadius="none"
-                          borderColor={borderColor}
-                          fontSize="xs"
-                          rightIcon={<ArrowRight size={14} />}
-                          _hover={{ borderColor: "brand.500", color: "brand.500" }}
-                          opacity={0}
-                          _groupHover={{ opacity: 1 }}
-                          transition="all 0.25s"
+                          size="sm" variant="outline" borderRadius="full"
+                          borderColor="var(--color-glass-border)" color="var(--color-stardust)"
+                          fontSize="xs" rightIcon={<ArrowRight size={14} />}
+                          _hover={{ borderColor: "var(--color-cyan)", color: "black", bg: "var(--color-cyan)" }}
+                          transition="all 0.3s"
                         >
                           Enquire
                         </Button>
@@ -155,19 +136,21 @@ export default function ServicesPage() {
                 </Box>
               </FadeIn>
             ))}
-            <Box borderTop="1px solid" borderColor={borderColor} />
           </VStack>
         </Container>
       </Box>
 
       {/* Process */}
-      <Box bg={useColorModeValue("gray.50", "gray.800")} py={{ base: 16, md: 32 }}>
+      <Box py={{ base: 16, md: 32 }} position="relative">
         <Container maxW="1400px" px={{ base: 5, md: 10, lg: 16 }}>
           <FadeIn>
-            <Text fontSize="xs" fontWeight="700" letterSpacing="0.12em" textTransform="uppercase" color="brand.500" mb={4}>
-              How I Work
-            </Text>
-            <Heading fontSize={{ base: "4xl", md: "5xl" }} lineHeight="1.05" color={headingColor} mb={16}>
+            <HStack mb={3} spacing={2}>
+              <Box w="24px" h="1px" background="linear-gradient(90deg, var(--color-violet), var(--color-cyan))" />
+              <Text fontFamily="mono" fontSize="xs" letterSpacing="0.15em" textTransform="uppercase" color="var(--color-stardust)">
+                How I Work
+              </Text>
+            </HStack>
+            <Heading fontSize={{ base: "4xl", md: "5xl" }} lineHeight="1.05" color="var(--color-star)" mb={16}>
               My Design Process
             </Heading>
           </FadeIn>
@@ -176,45 +159,27 @@ export default function ServicesPage() {
             {PROCESS.map((step, i) => (
               <FadeIn key={step.step} delay={i * 0.08}>
                 <MotionBox
-                  whileHover={{ y: -6 }}
-                  transition={{ duration: 0.2 }}
-                  bg={bg}
-                  p={8}
-                  border="1px solid"
-                  borderColor={borderColor}
-                  position="relative"
-                  overflow="hidden"
+                  whileHover={{ y: -6 }} transition={{ duration: 0.2 }}
+                  className="glass-panel" p={8} borderRadius="2xl" position="relative" overflow="hidden" role="group"
                 >
                   <Box
-                    position="absolute"
-                    top={0}
-                    left={0}
-                    w="3px"
-                    h="0%"
-                    bg="brand.500"
-                    transition="height 0.3s ease"
-                    _groupHover={{ h: "100%" }}
+                    position="absolute" top={0} left={0} right={0} h="2px" bg="var(--color-violet)"
+                    transform="scaleX(0)" transformOrigin="left" transition="transform 0.3s ease" _groupHover={{ transform: "scaleX(1)" }}
                   />
                   <Text
-                    fontSize="6xl"
-                    fontFamily="heading"
-                    fontWeight="900"
-                    color={processNumberColor}
-                    lineHeight="1"
-                    mb={4}
-                    position="absolute"
-                    top={4}
-                    right={6}
+                    fontSize="6xl" fontFamily="heading" fontWeight="900"
+                    color="rgba(255,255,255,0.05)" lineHeight="1" mb={4} position="absolute" top={4} right={6}
+                    transition="color 0.3s" _groupHover={{ color: "rgba(124,58,237,0.1)" }}
                   >
                     {step.step}
                   </Text>
-                  <Box mb={4} mt={2}>
-                    <Zap size={20} color="#FE4820" />
+                  <Box mb={4} mt={2} color="var(--color-cyan)">
+                    <Zap size={24} />
                   </Box>
-                  <Heading fontSize="xl" color={headingColor} mb={3}>
+                  <Heading fontSize="xl" color="var(--color-star)" mb={3}>
                     {step.title}
                   </Heading>
-                  <Text fontSize="sm" color={bodyText} lineHeight="1.8">
+                  <Text fontSize="sm" color="var(--color-stardust)" lineHeight="1.8">
                     {step.desc}
                   </Text>
                 </MotionBox>
@@ -225,28 +190,44 @@ export default function ServicesPage() {
       </Box>
 
       {/* CTA */}
-      <Box py={{ base: 20, md: 32 }} bg={bg}>
-        <Container maxW="1400px" px={{ base: 5, md: 10, lg: 16 }}>
+      <Box py={{ base: 20, md: 32 }} position="relative">
+        <Box position="absolute" inset={0} bg="radial-gradient(circle at center, rgba(124,58,237,0.1) 0%, transparent 70%)" />
+        <Container maxW="1400px" px={{ base: 5, md: 10, lg: 16 }} position="relative">
           <FadeIn>
-            <Box textAlign="center">
-              <Text fontSize="xs" fontWeight="700" letterSpacing="0.12em" textTransform="uppercase" color="brand.500" mb={4}>
-                Ready to Start?
-              </Text>
-              <Heading fontSize={{ base: "4xl", md: "6xl" }} lineHeight="1.05" color={headingColor} mb={6}>
-                Let&apos;s build something
-                <Box as="span" fontStyle="italic" color="brand.500"> great.</Box>
+            <Box textAlign="center" className="glass-panel" p={16} borderRadius="3xl" border="1px solid var(--color-glass-border)">
+              <HStack justify="center" mb={4} spacing={2}>
+                <Box w="24px" h="1px" background="linear-gradient(90deg, var(--color-violet), var(--color-cyan))" />
+                <Text fontFamily="mono" fontSize="xs" letterSpacing="0.15em" textTransform="uppercase" color="var(--color-stardust)">
+                  Ready to Start?
+                </Text>
+                <Box w="24px" h="1px" background="linear-gradient(90deg, var(--color-cyan), var(--color-violet))" />
+              </HStack>
+              <Heading fontSize={{ base: "4xl", md: "6xl" }} lineHeight="1.05" color="var(--color-star)" mb={6}>
+                Let&apos;s build something{" "}
+                <Box as="span" fontStyle="italic" fontWeight="400" sx={{ background: "linear-gradient(135deg, var(--color-violet), var(--color-cyan))", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent", backgroundClip: "text" }}>
+                  great.
+                </Box>
               </Heading>
-              <Text fontSize="lg" color={subtleText} mb={10} maxW="480px" mx="auto" lineHeight="1.7">
+              <Text fontSize="lg" color="var(--color-stardust)" mb={10} maxW="480px" mx="auto" lineHeight="1.7">
                 Tell me about your project and I&apos;ll send over a tailored proposal within 48 hours.
               </Text>
-              <HStack justify="center" spacing={4}>
+              <HStack justify="center" spacing={4} flexWrap="wrap">
                 <Link href="/contact" passHref>
-                  <Button colorScheme="brand" size="lg" px={10} rightIcon={<ArrowRight size={18} />}>
+                  <Button
+                    size="lg" px={10} rightIcon={<ArrowRight size={18} />}
+                    bg="linear-gradient(135deg, var(--color-violet), var(--color-cyan))"
+                    color="white" border="none"
+                    _hover={{ transform: "scale(1.05)", boxShadow: "0 0 20px var(--color-glow-cyan)" }}
+                  >
                     Start a Project
                   </Button>
                 </Link>
                 <Link href="/work" passHref>
-                  <Button variant="outline" size="lg" px={10} borderColor={borderColor} _hover={{ borderColor: "brand.500", color: "brand.500" }}>
+                  <Button
+                    variant="outline" size="lg" px={10}
+                    borderColor="var(--color-glass-border)" color="var(--color-star)" bg="var(--color-glass-bg)" backdropFilter="blur(10px)"
+                    _hover={{ borderColor: "var(--color-violet)", color: "white" }}
+                  >
                     View My Work
                   </Button>
                 </Link>

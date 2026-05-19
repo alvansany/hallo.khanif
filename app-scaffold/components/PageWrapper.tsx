@@ -2,15 +2,22 @@
 import { Box } from "@chakra-ui/react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import ParallaxContainer from "./parallax/ParallaxContainer";
+import CustomCursor from "./ui/CustomCursor";
 
 export default function PageWrapper({ children }: { children: React.ReactNode }) {
   return (
-    <Box minH="100vh" display="flex" flexDirection="column">
-      <Navbar />
-      <Box as="main" flex="1" pt="72px">
-        {children}
+    <ParallaxContainer>
+      {/* Custom cursor — desktop only */}
+      <CustomCursor />
+
+      <Box minH="100vh" display="flex" flexDirection="column" position="relative" zIndex={10}>
+        <Navbar />
+        <Box as="main" flex="1" pt="70px">
+          {children}
+        </Box>
+        <Footer />
       </Box>
-      <Footer />
-    </Box>
+    </ParallaxContainer>
   );
 }

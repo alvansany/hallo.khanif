@@ -1,7 +1,7 @@
 import { extendTheme, type ThemeConfig } from "@chakra-ui/react";
 
 const config: ThemeConfig = {
-  initialColorMode: "light",
+  initialColorMode: "dark",
   useSystemColorMode: false,
 };
 
@@ -14,28 +14,48 @@ const theme = extendTheme({
       200: "#ffb499",
       300: "#ff8a66",
       400: "#ff6033",
-      500: "#FE4820", // primary accent
+      500: "#FE4820", // aurora-1 primary
       600: "#d93a18",
       700: "#b32d11",
       800: "#8c200b",
       900: "#661406",
     },
-    gray: {
-      50:  "#f9f9f9",
-      100: "#f0f0f0",
-      200: "#e0e0e0",
-      300: "#c7c7c7",
-      400: "#a0a0a0",
-      500: "#767676",
-      600: "#555555",
-      700: "#333333",
-      800: "#1a1a1a",
-      900: "#0a0a0a",
+    violet: {
+      50:  "#f5f3ff",
+      100: "#ede9fe",
+      200: "#ddd6fe",
+      300: "#c4b5fd",
+      400: "#a78bfa",
+      500: "#7C3AED",
+      600: "#6d28d9",
+      700: "#5b21b6",
+      800: "#4c1d95",
+      900: "#2e1065",
+    },
+    cyan: {
+      50:  "#ecfeff",
+      100: "#cffafe",
+      200: "#a5f3fc",
+      300: "#67e8f9",
+      400: "#22d3ee",
+      500: "#06B6D4",
+      600: "#0891b2",
+      700: "#0e7490",
+      800: "#155e75",
+      900: "#164e63",
+    },
+    cosmic: {
+      void:    "#04050A",
+      deep:    "#080C18",
+      nebula1: "#1A0A2E",
+      nebula2: "#0D1B3E",
+      star:    "#E8EAFF",
+      dust:    "#94A3B8",
     },
   },
   fonts: {
-    heading: "'Playfair Display', 'Georgia', serif",
-    body:    "'Inter', 'Helvetica Neue', sans-serif",
+    heading: "'Syne', sans-serif",
+    body:    "'DM Sans', 'Helvetica Neue', sans-serif",
     mono:    "'JetBrains Mono', monospace",
   },
   fontSizes: {
@@ -74,12 +94,12 @@ const theme = extendTheme({
   },
   radii: {
     none: "0",
-    sm: "0.125rem",
-    base: "0.25rem",
-    md: "0.375rem",
-    lg: "0.5rem",
-    xl: "0.75rem",
-    "2xl": "1rem",
+    sm:   "0.25rem",
+    base: "0.375rem",
+    md:   "0.5rem",
+    lg:   "0.75rem",
+    xl:   "1rem",
+    "2xl": "1.5rem",
     full: "9999px",
   },
   components: {
@@ -88,12 +108,38 @@ const theme = extendTheme({
         fontFamily: "body",
         fontWeight: "600",
         letterSpacing: "0.04em",
-        textTransform: "uppercase",
-        fontSize: "xs",
-        borderRadius: "none",
-        transition: "all 0.25s ease",
+        fontSize: "sm",
+        borderRadius: "full",
+        transition: "all 0.3s ease",
+        _focus: { boxShadow: "none" },
       },
       variants: {
+        // Primary glow button: violet → cyan gradient
+        cosmic: {
+          bg: "linear-gradient(135deg, #7C3AED, #06B6D4)",
+          color: "white",
+          border: "none",
+          boxShadow: "0 0 20px rgba(124,58,237,0.3), 0 0 40px rgba(6,182,212,0.2)",
+          _hover: {
+            bg: "linear-gradient(135deg, #06B6D4, #7C3AED)",
+            boxShadow: "0 0 30px rgba(124,58,237,0.5), 0 0 60px rgba(6,182,212,0.3)",
+            transform: "scale(1.03)",
+          },
+          _active: { transform: "scale(0.98)" },
+        },
+        // Secondary glass button
+        glass: {
+          bg: "var(--color-glass-bg)",
+          color: "var(--color-star)",
+          border: "1px solid var(--color-glass-border)",
+          backdropFilter: "blur(10px)",
+          _hover: {
+            bg: "rgba(124,58,237,0.1)",
+            borderColor: "violet.500",
+            boxShadow: "0 0 15px rgba(124,58,237,0.3)",
+          },
+          _active: { transform: "scale(0.98)" },
+        },
         solid: (props: { colorScheme: string }) =>
           props.colorScheme === "brand"
             ? {
@@ -104,12 +150,10 @@ const theme = extendTheme({
               }
             : {},
         outline: {
-          borderRadius: "none",
           borderWidth: "1.5px",
           _hover: { transform: "translateY(-2px)" },
         },
         ghost: {
-          borderRadius: "none",
           _hover: { bg: "transparent", color: "brand.500" },
         },
       },
@@ -117,44 +161,47 @@ const theme = extendTheme({
     Heading: {
       baseStyle: {
         fontFamily: "heading",
-        fontWeight: "700",
-        lineHeight: "1.1",
+        fontWeight: "800",
+        lineHeight: "1.05",
         letterSpacing: "-0.02em",
       },
     },
     Link: {
       baseStyle: {
-        _hover: { textDecoration: "none", color: "brand.500" },
+        _hover: { textDecoration: "none" },
         transition: "color 0.2s ease",
       },
     },
     Divider: {
-      baseStyle: { borderColor: "gray.200", _dark: { borderColor: "gray.700" } },
+      baseStyle: {
+        borderColor: "gray.200",
+        _dark: { borderColor: "whiteAlpha.100" },
+      },
     },
   },
   styles: {
     global: (props: { colorMode: string }) => ({
       "html, body": {
         fontFamily: "body",
-        bg: props.colorMode === "dark" ? "gray.900" : "white",
-        color: props.colorMode === "dark" ? "gray.50" : "gray.900",
+        bg: props.colorMode === "dark" ? "cosmic.void" : "#F0F4FF",
+        color: props.colorMode === "dark" ? "cosmic.star" : "cosmic.void",
         scrollBehavior: "smooth",
         overflowX: "hidden",
       },
       "::selection": {
-        bg: "brand.500",
+        bg: "violet.500",
         color: "white",
       },
-      "::-webkit-scrollbar": {
-        width: "6px",
+      // Custom scrollbar
+      "::-webkit-scrollbar": { width: "5px" },
+      "::-webkit-scrollbar-track": {
+        bg: props.colorMode === "dark" ? "cosmic.void" : "#F0F4FF",
       },
       "::-webkit-scrollbar-thumb": {
-        bg: "brand.500",
+        background: "linear-gradient(#7C3AED, #06B6D4)",
         borderRadius: "full",
       },
-      "a": {
-        transition: "all 0.2s ease",
-      },
+      "a": { transition: "all 0.2s ease" },
     }),
   },
 });

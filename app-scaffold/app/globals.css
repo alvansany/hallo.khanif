@@ -1,0 +1,220 @@
+/* ============================================================
+   COSMIC SPACE DESIGN SYSTEM — Global CSS Variables & Keyframes
+   Portfolio Redesign: "Orbital Designer" Theme
+   Branch: redesign
+   ============================================================ */
+
+/* ── Color Tokens ─────────────────────────────────────────── */
+:root,
+.chakra-ui-light {
+  --color-void:          #F0F4FF;
+  --color-deep:          #E8EEFF;
+  --color-nebula-1:      #EDE9FE;
+  --color-nebula-2:      #DBEAFE;
+  --color-aurora-1:      #FE4820;
+  --color-aurora-2:      #FF9000;
+  --color-aurora-3:      #FFD700;
+  --color-star:          #1E1B4B;
+  --color-stardust:      #4C5980;
+  --color-glass-bg:      rgba(255, 255, 255, 0.6);
+  --color-glass-border:  rgba(124, 58, 237, 0.15);
+  --color-glow-violet:   rgba(124, 58, 237, 0.2);
+  --color-glow-cyan:     rgba(6, 182, 212, 0.2);
+  --color-violet:        #7C3AED;
+  --color-cyan:          #06B6D4;
+  --color-emerald:       #10B981;
+}
+
+.chakra-ui-dark {
+  --color-void:          #04050A;
+  --color-deep:          #080C18;
+  --color-nebula-1:      #1A0A2E;
+  --color-nebula-2:      #0D1B3E;
+  --color-aurora-1:      #FE4820;
+  --color-aurora-2:      #FF9000;
+  --color-aurora-3:      #FFD700;
+  --color-star:          #E8EAFF;
+  --color-stardust:      #94A3B8;
+  --color-glass-bg:      rgba(255, 255, 255, 0.04);
+  --color-glass-border:  rgba(255, 255, 255, 0.08);
+  --color-glow-violet:   rgba(124, 58, 237, 0.3);
+  --color-glow-cyan:     rgba(6, 182, 212, 0.3);
+  --color-violet:        #7C3AED;
+  --color-cyan:          #06B6D4;
+  --color-emerald:       #10B981;
+}
+
+/* ── Base Resets ──────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ── Keyframes ────────────────────────────────────────────── */
+
+/* Bintang berkedip */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50%       { opacity: 1;   transform: scale(1.3); }
+}
+
+/* Nebula breathing */
+@keyframes nebula-breathe {
+  0%, 100% { transform: scale(1) rotate(0deg);   opacity: 0.4; }
+  50%       { transform: scale(1.08) rotate(2deg); opacity: 0.6; }
+}
+
+/* Orbital ring rotation */
+@keyframes orbit-spin-cw {
+  from { transform: rotateX(75deg) rotateZ(0deg); }
+  to   { transform: rotateX(75deg) rotateZ(360deg); }
+}
+
+@keyframes orbit-spin-ccw {
+  from { transform: rotateX(75deg) rotateZ(360deg); }
+  to   { transform: rotateX(75deg) rotateZ(0deg); }
+}
+
+/* Particle drift */
+@keyframes particle-drift {
+  0%   { transform: translateY(0px)    translateX(0px);  opacity: 0; }
+  10%  { opacity: 1; }
+  90%  { opacity: 1; }
+  100% { transform: translateY(-120px) translateX(30px); opacity: 0; }
+}
+
+/* Badge pulse dot */
+@keyframes pulse-dot {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.5); }
+  50%       { box-shadow: 0 0 0 6px rgba(16, 185, 129, 0);  }
+}
+
+/* Shimmer sweep */
+@keyframes shimmer {
+  0%   { background-position: -200% center; }
+  100% { background-position:  200% center; }
+}
+
+/* Word reveal for hero headline */
+@keyframes word-reveal {
+  0%   { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0px);  }
+}
+
+/* Fade-in + slide-up */
+@keyframes fade-slide-up {
+  0%   { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0px);  }
+}
+
+/* Timeline line fill */
+@keyframes line-fill {
+  from { transform: scaleY(0); }
+  to   { transform: scaleY(1); }
+}
+
+/* Gradient text animation */
+@keyframes gradient-shift {
+  0%   { background-position: 0%   50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0%   50%; }
+}
+
+/* Glitch effect */
+@keyframes glitch-1 {
+  0%, 100% { clip-path: none; transform: none; }
+  20%       { clip-path: inset(20% 0 60% 0); transform: translateX(-4px); }
+  40%       { clip-path: inset(60% 0 10% 0); transform: translateX(4px);  }
+  60%       { clip-path: none; transform: none; }
+}
+
+@keyframes glitch-2 {
+  0%, 100% { clip-path: none; transform: none; }
+  25%       { clip-path: inset(40% 0 40% 0); transform: translateX(4px);  }
+  50%       { clip-path: inset(10% 0 70% 0); transform: translateX(-4px); }
+  75%       { clip-path: none; transform: none; }
+}
+
+/* Aurora shimmer */
+@keyframes aurora-shimmer {
+  0%   { opacity: 0.3; transform: skewX(0deg)   scaleX(1);    }
+  50%  { opacity: 0.6; transform: skewX(-5deg)  scaleX(1.05); }
+  100% { opacity: 0.3; transform: skewX(0deg)   scaleX(1);    }
+}
+
+/* ── Utility Classes ──────────────────────────────────────── */
+
+/* Glass morphism panel */
+.glass-panel {
+  background:     var(--color-glass-bg);
+  border:         1px solid var(--color-glass-border);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Gradient text (violet → cyan) */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-violet) 0%, var(--color-cyan) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 200%;
+  animation: gradient-shift 4s ease infinite;
+}
+
+/* Glow button primary */
+.glow-button-primary {
+  background:  linear-gradient(135deg, var(--color-violet), var(--color-cyan));
+  box-shadow:  0 0 20px var(--color-glow-violet), 0 0 40px var(--color-glow-cyan);
+  transition:  all 0.3s ease;
+}
+.glow-button-primary:hover {
+  background:  linear-gradient(135deg, var(--color-cyan), var(--color-violet));
+  box-shadow:  0 0 30px var(--color-glow-violet), 0 0 60px var(--color-glow-cyan);
+  transform:   scale(1.03);
+}
+
+/* Glow button secondary (glass) */
+.glow-button-secondary {
+  background:  transparent;
+  border:      1px solid var(--color-glass-border);
+  backdrop-filter: blur(10px);
+  transition:  all 0.3s ease;
+}
+.glow-button-secondary:hover {
+  background:  var(--color-glass-bg);
+  border-color: var(--color-violet);
+  box-shadow:  0 0 15px var(--color-glow-violet);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--color-void); }
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--color-violet), var(--color-cyan));
+  border-radius: 999px;
+}
+
+/* Text selection */
+::selection {
+  background: var(--color-violet);
+  color: #fff;
+}
+
+/* Twinkling star helper */
+.star-twinkle {
+  animation: twinkle var(--twinkle-duration, 3s) ease-in-out infinite;
+  animation-delay: var(--twinkle-delay, 0s);
+}
+
+/* Reduced motion — disable all animations */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

@@ -1,5 +1,5 @@
 # 📋 PROJECT STATE — Portfolio Website
-> **Last Updated:** 2026-05-07 | **Status:** Deployment Ready / Final Polish ✅
+> **Last Updated:** 2026-05-19 | **Status:** Redesign In Progress (branch: `redesign`) 🚀
 
 ---
 
@@ -25,7 +25,7 @@ Membangun situs web **portofolio multi-halaman** yang profesional dan berkualita
 | Ikon | Lucide React | Latest (brand icons dihapus!) |
 | RSS Feed | rss-parser | Latest |
 | Bahasa | TypeScript | Latest |
-| Font | Playfair Display + Inter | via Google Fonts |
+| Font | **Syne + DM Sans + JetBrains Mono** | via Google Fonts (redesign branch) |
 
 ### ⚠️ Catatan Kritis Tech Stack
 1. **Chakra UI HARUS v2** — v3 memiliki breaking API yang berbeda total (`extendTheme`, `useColorMode`, `Drawer`, semua berubah)
@@ -121,6 +121,31 @@ Membangun situs web **portofolio multi-halaman** yang profesional dan berkualita
 - **Vercel Deployment Discrepancy**: Memperbaiki isu di mana Vercel terus gagal build akibat perubahan lokal (seperti `BlogPost` interface dan perbaikan linting) yang belum ter-commit dan ter-push ke GitHub.
 - **Git Submodule Issue**: Memperbaiki repositori yang terdeteksi sebagai submodule sehingga file di dalam `app-scaffold` dapat dibaca secara utuh oleh GitHub dan Vercel.
 - **Email Priority**: Menambahkan header `Importance: high` dan subjek `[URGENT]` pada API Contact agar pesan klien masuk ke inbox utama.
+
+---
+
+## 🚀 Redesign Progress (Branch: `redesign`)
+
+### 🎨 Tema: "Orbital Designer" — Cosmic Space UI
+Berdasarkan `PRD_Redesign.md`. Semua perubahan di branch terpisah, tidak menyentuh `main`.
+
+| Step | Status | Keterangan |
+|------|--------|------------|
+| Step 1: Foundation & Theming | ✅ Done | Fonts, globals.css (CSS vars + keyframes), Chakra theme baru |
+| Step 2: Parallax Assets | ✅ Done | StarField, NebulaLayer, OrbitalRings, CosmicParticles, ParallaxContainer |
+| Step 3: Navbar & Footer | ✅ Done | Glass navbar KA. logo, Moon/Sun toggle, gradient CTA, footer shimmer |
+| Step 4: Hero & About | 🔄 In Progress | — |
+| Step 5: Experience & Works | ⏳ Pending | — |
+| Step 6: Services & CTA | ⏳ Pending | — |
+
+### 📁 File Baru (branch: redesign)
+- `app/globals.css` — CSS variables cosmic, semua keyframes
+- `components/parallax/StarField.tsx` — 3-layer SVG bintang dengan twinkle
+- `components/parallax/NebulaLayer.tsx` — 3 SVG nebula blob beranimasi
+- `components/parallax/OrbitalRings.tsx` — Ring elips berputar CW/CCW
+- `components/parallax/CosmicParticles.tsx` — Canvas particle system
+- `components/parallax/ParallaxContainer.tsx` — Multi-layer scroll parallax
+- `components/ui/CustomCursor.tsx` — Custom cursor dot + ring (desktop)
 
 ---
 
